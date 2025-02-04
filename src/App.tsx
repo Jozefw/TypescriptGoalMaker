@@ -18,12 +18,12 @@ export default function App() {
     SetGoals(prevVal => prevVal.filter((goal)=>goal.id !== id) )
   }
 
-  function addGoalHandler(){
+  function addGoalHandler(goal:string,summary:string){
     SetGoals((prevVal)=>{
       const newGoal:DailyGoal ={
         id:Math.random(),
-        title: 'New Title',
-        description:"New Description"
+        title: goal,
+        description:summary
       }
       return [...prevVal,newGoal]
     })
@@ -31,9 +31,9 @@ export default function App() {
   return (
     <main>
       <Header image={{src:goalsImage, alt:"Header Image", src2:Target, alt2:"background Target"}}>
-        <h1>Daily Goals</h1>
+        <h1>Habit Tracker</h1>
       </Header>
-    <NewGoalForm onClick={addGoalHandler}></NewGoalForm>
+    <NewGoalForm onAddGoal={addGoalHandler}></NewGoalForm>
     <DailyGoalsList onDelete={HandleDelete} listGoalsProp={goals}></DailyGoalsList>
     </main>
   )
