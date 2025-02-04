@@ -3,21 +3,22 @@ import {type DailyGoal} from "../App.tsx"
 
 type goalsProps = {
     listGoalsProp:DailyGoal[];
-    deleteGoal:(id:number)=> void
+    onDelete:(id:number)=> void;
 }
 type goalsProps2 = {
     listGoalsProp:{
-        title:string,
-        description:string,
-        id: number
+        title:string;
+        description:string;
+        id: number;
+        onDelete:(id:number)=> void;
     }[]
 }
-export default function DailyGoalsList({listGoalsProp, deleteGoal}:goalsProps) {
+export default function DailyGoalsList({listGoalsProp, onDelete}:goalsProps) {
     return (
         <ul>
             {listGoalsProp.map((goal) => (
                 <li>
-                    <DailyGoals toDelete={deleteGoal} key={goal.id} title={goal.title} description={goal.description}>
+                    <DailyGoals id={goal.id} toDeleteGoal={onDelete} key={goal.id} title={goal.title} description={goal.description}>
                         <p>{goal.description}</p>
                     </DailyGoals>
                 </li>

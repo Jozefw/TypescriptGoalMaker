@@ -3,6 +3,7 @@ import DailyGoalsList from "./components/DailyGoalsList.tsx";
 import { useState } from "react";
 import goalsImage from "./assets/goals.jpg";
 import Target from "./assets/target.png";
+import NewGoalForm from "./components/NewGoalForm.tsx";
 
 export type DailyGoal = {
   title:string,
@@ -32,9 +33,8 @@ export default function App() {
       <Header image={{src:goalsImage, alt:"Header Image", src2:Target, alt2:"background Target"}}>
         <h1>Daily Goals</h1>
       </Header>
-      <button onClick={addGoalHandler}>Add a Daily Goal</button>
-      <button onClick={HandleDelete}></button>
-    <DailyGoalsList listGoalsProp={goals}></DailyGoalsList>
+    <NewGoalForm onClick={addGoalHandler}></NewGoalForm>
+    <DailyGoalsList onDelete={HandleDelete} listGoalsProp={goals}></DailyGoalsList>
     </main>
   )
 }
