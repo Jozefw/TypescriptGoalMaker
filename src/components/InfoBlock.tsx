@@ -1,22 +1,30 @@
 import  React from 'react'
 import {type ReactNode} from 'react'
 
-
-type infoBlockProps = {
-    mode: "hint" | "warning"
+type HintBlock={
+    mode: "hint";
     children:ReactNode;
 }
-export default function InfoBlock({mode,children}:infoBlockProps) {
 
-    if(mode === "hint"){
+type SeverityBlock ={
+    mode: "warning";
+    severity: "low" | "medium" | "high" 
+    children:ReactNode;
+} 
+
+type infoBlockProps = HintBlock | SeverityBlock
+export default function InfoBlock(props:infoBlockProps) {
+const {children,mode} = props
+    if(props.mode === "hint"){
         return(
             <aside className="infobox infobox-hint">
                 <p>{children}</p>
             </aside>        
         )
     }
+    const {severity} = props
     return (
-        <aside className="infobox infobox-warning warning--low">
+        <aside className = {`infobox infobox-warning warning--${severity}`}>
         <h4>Warning...</h4>
         <p>{children}</p>
         

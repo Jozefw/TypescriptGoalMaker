@@ -22,7 +22,7 @@ export default function DailyGoalsList({listGoalsProp, onDelete}:goalsProps) {
 
     let warningBlock: ReactNode;
     if(listGoalsProp.length >= 4){
-        warningBlock = <InfoBlock mode="warning">That may be too many</InfoBlock>
+        warningBlock = <InfoBlock mode="warning" severity="high">That may be too many</InfoBlock>
     }
     return (
         <>
