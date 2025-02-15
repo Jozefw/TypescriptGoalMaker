@@ -1,5 +1,7 @@
 import DailyGoals from "./DailyGoals";
 import {type DailyGoal} from "../App.tsx"
+import InfoBlock from './InfoBlock';
+import {type ReactNode} from 'react';
 
 type goalsProps = {
     listGoalsProp:DailyGoal[];
@@ -14,7 +16,17 @@ type goalsProps2 = {
     }[]
 }
 export default function DailyGoalsList({listGoalsProp, onDelete}:goalsProps) {
+    if(listGoalsProp.length === 0){
+        return(<InfoBlock mode="hint">No Habbits Yet</InfoBlock>)
+    }
+
+    let warningBlock: ReactNode;
+    if(listGoalsProp.length >= 4){
+        warningBlock = <InfoBlock mode="warning">That may be too many</InfoBlock>
+    }
     return (
+        <>
+        {warningBlock}
         <ul>
             {listGoalsProp.map((goal) => (
                 <li>
@@ -25,5 +37,7 @@ export default function DailyGoalsList({listGoalsProp, onDelete}:goalsProps) {
             ))}
 
         </ul>
+        
+        </>
     )
 }

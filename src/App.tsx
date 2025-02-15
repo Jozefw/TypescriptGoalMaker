@@ -30,7 +30,7 @@ export default function App() {
   }
   return (
     <main>
-      <Header image={{src:goalsImage, alt:"Header Image", src2:Target, alt2:"background Target"}}>
+      <Header image={{src2:Target, alt2:"background Target"}}>
         <h1>Habit Tracker</h1>
       </Header>
     <NewGoalForm onAddGoal={addGoalHandler}></NewGoalForm>

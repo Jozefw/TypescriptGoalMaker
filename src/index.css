@@ -121,13 +121,45 @@ li button {
   border: none;
   color: #909a9a;
   cursor: pointer;
+  display: flex;
+  margin-left: auto;
 }
 
 li button:hover {
-  color: #f9a73b;
+  color: #494848;
 }
 
 .fallback {
   text-align: center;
   color: #acd1ce;
+}
+
+
+.infobox {
+  margin: 2rem 0;
+  padding: 0.5rem;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  font-size: 0.85rem;
+  border-radius: 4px;
+}
+
+.infobox-hint {
+  border: 1px solid #eaf5f6;
+  color: #eaf5f6;
+}
+
+.infobox-warning.warning--low {
+  border: 1px solid #0086b1;
+  color: #0086b1;
+}
+
+.infobox-warning.warning--medium {
+  border: 1px solid #3bf9bd;
+  color: #3bf9bd;
+}
+
+.infobox-warning.warning--high {
+  border: 1px solid #f9739b;
+  color: #f9739b;
 }
